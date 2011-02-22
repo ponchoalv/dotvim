@@ -43,3 +43,21 @@
 [submodule "bundle/whitespace"]
 	path = bundle/whitespace
 	url = git://github.com/vim-scripts/trailing-whitespace.git
+[submodule "bundle/piv"]
+	path = bundle/piv
+	url = git://github.com/spf13/PIV.git
+[submodule "bundle/commenter"]
+	path = bundle/commenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = http://github.com/spf13/nerdtree.git
+[submodule "bundle/deimitMate"]
+	path = bundle/deimitMate
+	url = http://github.com/Raimondi/delimitMate.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "bundle/colors"]
+	path = bundle/colors
+	url = git://github.com/spf13/vim-colors.git
