@@ -40,3 +40,6 @@
 [submodule "bundle/conque"]
 	path = bundle/conque
 	url = git://github.com/vim-scripts/Conque-Shell.git
+[submodule "bundle/whitespace"]
+	path = bundle/whitespace
+	url = git://github.com/vim-scripts/trailing-whitespace.git
