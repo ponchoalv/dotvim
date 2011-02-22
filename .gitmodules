@@ -22,3 +22,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "bundle/vim-sparkup"]
+	path = bundle/vim-sparkup
+	url = git://github.com/bingaman/vim-sparkup.git
