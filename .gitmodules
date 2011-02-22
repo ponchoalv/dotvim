@@ -31,3 +31,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "pep8"]
+	path = pep8
+	url = git://github.com/vim-scripts/pep8.git
