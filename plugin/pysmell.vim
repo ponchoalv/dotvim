@@ -1,0 +1,1 @@
+/usr/share/vim/plugin/pysmell.vim
