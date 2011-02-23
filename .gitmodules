@@ -67,3 +67,6 @@
 [submodule "bundle/easytags"]
 	path = bundle/easytags
 	url = http://github.com/spf13/vim-easytags.git
+[submodule "bundle/xmledit"]
+	path = bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
