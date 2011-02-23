@@ -14,6 +14,8 @@ set expandtab
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
+set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
+
 		  " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
@@ -26,16 +28,63 @@ set smartcase     " ignore case if search pattern is all lowercase,
 		          "    case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
-set nobackup
-set noswapfile
 set pastetoggle=<F2>
 set nocompatible
-let loaded_project = 1
+syntax on     " activar colores
+set shortmess+=filmnrxoOtT     	" abbrev. of messages (avoids 'hit enter')
+set showmode                   	" display the current mode
+set autowrite                  " automatically write a file when leaving a modified buffer
+
+set nu 							" Line numbers on
+set tabpagemax=15 				" only show 15 tabs
+set linespace=0 				" No extra spaces between rows
+
+set cursorline  				" highlight current line
+hi cursorline guibg=#333333 	" highlight bg color of current line
+hi CursorColumn guibg=#333333   " highlight cursor
+
+
+
+if has('cmdline_info')
+	set ruler                  	" show the ruler
+	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+	set showcmd                	" show partial commands in status line and
+								" selected characters/lines in visual mode
+endif
+
+
+scriptencoding utf-8
+set spell          " spell checking on
+
+	" Setting up the directories {
+		set backup 						" backups are nice ...
+		set backupdir=$HOME/.vimbackup//  " but not when they clog .
+		set directory=$HOME/.vimswap// 	" Same for swap files
+		set viewdir=$HOME/.vimviews// 	" same for view files
+
+		"" Creating directories if they don't exist
+		silent execute '!mkdir -p $HOME/.vimbackup'
+		silent execute '!mkdir -p $HOME/.vimswap'
+		silent execute '!mkdir -p $HOME/.vimviews'
+		au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
+		au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
+	" }
+
+
+if has('statusline')
+		set laststatus=1           	" show statusline only if there are > 1 windows
+		" Use the commented line if fugitive isn't installed
+		"set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P " a statusline, also on steroids
+		set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+	endif
+
+
+
 
 set ruler         " Muestra posición y otros datos del cursors y el buffer.
 "set completeopt=menu,longest,preview "mejora el autocompletado
 set wildmenu " turn on wild menu
-set wildmode=list:longest " turn on wild menu in special format (long format)
+set wildmode=list:longest,full " turn on wild menu in special format (long format)
 "set wildignore=*.pyc,*.pyo,*.dll,*.o,*.obj,*.bak,*.exe,*.swo,*.swp,*.jpg,*.gif,*.png " ignore some formats
 
 
@@ -124,7 +173,6 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "comente esto----<
 "Omnicomplete
-"autocmd FileType python set omnifunc=pysmell#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
