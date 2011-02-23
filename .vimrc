@@ -124,11 +124,13 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "comente esto----<
 "Omnicomplete
-autocmd FileType python set omnifunc=pysmell#Complete
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pysmell#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+let $DJANGO_SETTINGS_MODULE='mysite.settings'
 
 set gfn=Inconsolata\ Medium\ 13
 "set gfn=Monaco\ 12

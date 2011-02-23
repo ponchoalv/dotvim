@@ -64,3 +64,6 @@
 [submodule "bundle/pyflakes-vim"]
 	path = bundle/pyflakes-vim
 	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = http://github.com/spf13/vim-easytags.git
