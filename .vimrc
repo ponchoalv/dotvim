@@ -34,6 +34,8 @@ syntax on     " activar colores
 set shortmess+=filmnrxoOtT     	" abbrev. of messages (avoids 'hit enter')
 set showmode                   	" display the current mode
 set autowrite                  " automatically write a file when leaving a modified buffer
+set modeline
+set numberwidth=4 " If we have over 9999 lines, ohh, boo-hoo
 
 set nu 							" Line numbers on
 set tabpagemax=15 				" only show 15 tabs
@@ -42,19 +44,12 @@ set linespace=0 				" No extra spaces between rows
 set cursorline  				" highlight current line
 hi cursorline guibg=#333333 	" highlight bg color of current line
 hi CursorColumn guibg=#333333   " highlight cursor
-
-
-
-if has('cmdline_info')
-	set ruler                  	" show the ruler
-	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
-	set showcmd                	" show partial commands in status line and
-								" selected characters/lines in visual mode
-endif
-
+let g:loaded_fugitive = 1
 
 scriptencoding utf-8
 set spell          " spell checking on
+setlocal spell spelllang=es
+set spellfile=~/.vim/dict.add
 
 	" Setting up the directories {
 		set backup 						" backups are nice ...
@@ -69,14 +64,6 @@ set spell          " spell checking on
 		au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
 		au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
 	" }
-
-
-if has('statusline')
-		set laststatus=1           	" show statusline only if there are > 1 windows
-		" Use the commented line if fugitive isn't installed
-		"set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P " a statusline, also on steroids
-		set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-	endif
 
 
 
@@ -147,7 +134,7 @@ map <silent><A-Left> :tabprevious<CR>
 map <silent><A-x> :tabclose<CR>
 
 " auto nerd tree
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " clear search highlight
 nnoremap <C-space> :noh<cr>
@@ -173,14 +160,16 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "comente esto----<
 "Omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"Omnicomplete
+autocmd FileType python set omnifunc=pysmell#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 let $DJANGO_SETTINGS_MODULE='mysite.settings'
 
-set gfn=Inconsolata\ Medium\ 13
+set gfn=Inconsolata\ Medium\ 12
 "set gfn=Monaco\ 12
 
 set tags+=/home/poncho/.tags/
@@ -247,7 +236,9 @@ autocmd FileType html set ft=htmldjango.html
 "nmap <F12> vitSl
 
 " stealing tpope's statusline
-set statusline=[%n]%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%f%m%r%h%w\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENCODE=%{&fenc}]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+"set statusline=[%n]%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
 " Execute file being edited with <Shift> + e:
@@ -259,7 +250,16 @@ map <buffer> <S-e> :w<CR>:!/usr/bin/env python2 % <CR>
 		set guioptions-=T          	" remove the toolbar
 		set lines=40                "40 lines of text instead of 24,0
 		set guioptions-=m
-	else
+        "set guioptions+=b
+        set lines=999 columns=999
+    else
 		set term=builtin_ansi       " Make arrow and other keys work
-	endif
+            " This is console Vim.
+        if exists("+lines")
+            set lines=50
+        endif
+        if exists("+columns")
+            set columns=100
+        endif
+    endif
 " }
