@@ -53,7 +53,7 @@ vmap <C-Down> xp`[V`]
 set lazyredraw " do not redraw while running macros (much faster) (LazyRedraw)
 set vb " blink instead beep
 
-set makeprg=python\ manage.py\ validate " django stuff
+set makeprg=python2\ manage.py\ validate " django stuff
 
 set cmdheight=2 " silent shell prompts
 
