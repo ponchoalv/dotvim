@@ -120,7 +120,6 @@ set numberwidth=4
 set ruler
 set clipboard=autoselect
 set cursorline
-"set modeline
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENCODE=%{&fenc}]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-"set laststatus=2
-"set showmode
+set foldmethod=indent
+set ic
+set showmatch
