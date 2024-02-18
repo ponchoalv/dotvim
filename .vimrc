@@ -92,18 +92,7 @@ set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
 
 "" Ctrl-P (set up to us RipGrep - rg)
 if executable('rg')
-  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-
-  " rg is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_clear_cache_on_exit = 1
-
   set grepprg=rg\ -H\ --no-heading\ --vimgrep
-
   set grepformat=%f:%l:%c:%m
 endif
 
