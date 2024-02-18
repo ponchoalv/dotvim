@@ -1,0 +1,16 @@
+--langdef=Go
+--langmap=Go:.go
+--regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
+--regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
+--regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
+
+--langdef=terraform
+--langmap=terraform:.tf.tfvars
+--regex-terraform=/^[[:space:]]*resource[[:space:]]*"([^"]*)"[[:space:]]*"([^"]*)"/\2/r,Resource/
+--regex-terraform=/^[[:space:]]*data[[:space:]]*"([^"]*)"[[:space:]]*"([^"]*)"/\2/d,Data/
+--regex-terraform=/^[[:space:]]*variable[[:space:]]*"([^"]*)"/\1/v,Variable/
+--regex-terraform=/^[[:space:]]*provider[[:space:]]*"([^"]*)"/\1/p,Provider/
+--regex-terraform=/^[[:space:]]*module[[:space:]]*"([^"]*)"/\1/m,Module/
+--regex-terraform=/^[[:space:]]*output[[:space:]]*"([^"]*)"/\1/o,Output/
+--regex-terraform=/^([a-z0-9_]+)[[:space:]]*=/\1/f,TFVar/
+  
