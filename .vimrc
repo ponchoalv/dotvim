@@ -90,7 +90,7 @@ set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
 " - :cn and :cp to navigate forward and back
 
 
-"" Ctrl-P (set up to us RipGrep - rg)
+"" set up to us RipGrep - rg
 if executable('rg')
   set grepprg=rg\ -H\ --no-heading\ --vimgrep
   set grepformat=%f:%l:%c:%m
@@ -98,7 +98,7 @@ endif
 
 " INDENT STUFF:
 
-set autoindent expandtab tabstop=2 shiftwidth=2
+set autoindent smartindent expandtab tabstop=2 shiftwidth=2
 
 " MICELLANEOUS:
 
