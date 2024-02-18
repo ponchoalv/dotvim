@@ -120,6 +120,6 @@ set numberwidth=4
 set ruler
 set clipboard=autoselect
 set cursorline
-set foldmethod=indent
+" set foldmethod=syntax
 set ic
 set showmatch
