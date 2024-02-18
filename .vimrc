@@ -81,7 +81,10 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " http://philipbradley.net/rspec-into-vim-with-quickfix
 
 " Configure the `make` command to run RSpec
-set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
+" set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
+" set makeprg=golangci-lint\ run
+" we don't need those guys... just create a simple makefile with
+" the target we want to use and callit :make <target>
 
 " NOW WE CAN:
 " - Run :make to run RSpec
