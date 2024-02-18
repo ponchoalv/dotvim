@@ -12,3 +12,5 @@
   ln -s ~/.vim/.vimrc ~/.vimrc
   ln -s ~/.vim/.ctags ~/.ctags
 ```
+
+Credits to this video: https://www.youtube.com/watch?v=XA2WjJbmmoM
