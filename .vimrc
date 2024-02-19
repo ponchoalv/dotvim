@@ -101,10 +101,13 @@ endif
 
 " INDENT STUFF:
 
-set autoindent smartindent expandtab tabstop=2 shiftwidth=2
+set autoindent smartindent expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
 
 " MICELLANEOUS:
 
+set mouse=a
 set hlsearch
 set incsearch
 set number
@@ -112,6 +115,7 @@ set numberwidth=4
 set ruler
 set clipboard=autoselect
 set cursorline
-" set foldmethod=syntax
+set foldmethod=syntax
 set ic
 set showmatch
+colorscheme sorbet
