@@ -119,3 +119,8 @@ set foldmethod=syntax
 set ic
 set showmatch
 colorscheme sorbet
+
+" store backup, undo, and swap files in tmp directory
+set directory=$HOME/tmp//
+set backupdir=$HOME/tmp//
+set undodir=$HOME/tmp//
