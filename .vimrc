@@ -124,3 +124,4 @@ colorscheme sorbet
 set directory=$HOME/tmp//
 set backupdir=$HOME/tmp//
 set undodir=$HOME/tmp//
+set backspace=indent,eol,start
