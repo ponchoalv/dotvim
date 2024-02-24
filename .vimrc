@@ -95,7 +95,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 "" set up to us RipGrep - rg
 if executable('rg')
-  set grepprg=rg\ -H\ --no-heading\ --vimgrep
+  set grepprg=rg\ -H\ --no-heading\ --vimgrep\ --follow\ --smart-case
   set grepformat=%f:%l:%c:%m
 endif
 
@@ -126,3 +126,4 @@ set backupdir=$HOME/tmp//
 set undodir=$HOME/tmp//
 set backspace=indent,eol,start
 set shortmess-=S
+" set rtp+=/usr/local/opt/fzf
