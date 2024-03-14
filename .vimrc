@@ -111,6 +111,7 @@ set mouse=a
 set hlsearch
 set incsearch
 set number
+set rnu
 set numberwidth=4
 set ruler
 set clipboard=autoselect
