@@ -127,5 +127,5 @@ set backupdir=$HOME/tmp//
 set undodir=$HOME/tmp//
 set backspace=indent,eol,start
 set shortmess-=S
-" set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 set hidden
