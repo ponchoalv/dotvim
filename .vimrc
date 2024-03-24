@@ -135,26 +135,33 @@ packadd lsp
 
 " Clangd language server
 call LspAddServer([#{
-	\    name: 'clangd',
-	\    filetype: ['c', 'cpp'],
-	\    path: '/usr/local/opt/llvm/bin/clangd',
-	\    args: ['--background-index']
-	\  }])
+    \    name: 'clangd',
+    \    filetype: ['c', 'cpp'],
+    \    path: '/usr/local/opt/llvm/bin/clangd',
+    \    args: ['--background-index']
+    \  }])
 
 " terraform-ls
 call LspAddServer([#{
-	\    name: 'terraform-ls',
-	\    filetype: ['terraform'],
-	\    path: '/usr/local/bin/terraform-ls',
-	\    args: ['serve']
-	\  }])
+    \    name: 'terraform-ls',
+    \    filetype: ['terraform'],
+    \    path: '/usr/local/bin/terraform-ls',
+    \    args: ['serve']
+    \  }])
 
 " gopls
 call LspAddServer([#{name: 'gopls',
-                 \   filetype: 'go',
-                 \   path: '/usr/local/bin/gopls',
-                 \   args: ['serve']
-                 \ }])
+    \   filetype: 'go',
+    \   path: '/usr/local/bin/gopls',
+    \   args: ['serve']
+    \ }])
+
+" helm-ls
+call LspAddServer([#{name: 'helm-ls',
+    \    filetype: ['helm'],
+    \    path: '/usr/local/bin/helm_ls',
+    \    args: ['serve']
+    \  }])
 
 " Copilot
 packadd copilot
