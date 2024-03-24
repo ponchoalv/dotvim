@@ -1,3 +1,6 @@
 [submodule "pack/downloads/opt/lsp"]
 	path = pack/downloads/opt/lsp
 	url = https://github.com/yegappan/lsp
+[submodule "pack/downloads/opt/copilot"]
+	path = pack/downloads/opt/copilot
+	url = https://github.com/github/copilot.vim.git

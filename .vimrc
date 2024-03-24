@@ -129,6 +129,8 @@ set backspace=indent,eol,start
 set shortmess-=S
 set rtp+=/usr/local/opt/fzf
 set hidden
+
+" LSP stuff
 packadd lsp
 
 " Clangd language server
@@ -154,3 +156,5 @@ call LspAddServer([#{name: 'gopls',
                  \   args: ['serve']
                  \ }])
 
+" Copilot
+packadd copilot
