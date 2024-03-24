@@ -1,0 +1,3 @@
+[submodule "pack/downloads/opt/lsp"]
+	path = pack/downloads/opt/lsp
+	url = https://github.com/yegappan/lsp

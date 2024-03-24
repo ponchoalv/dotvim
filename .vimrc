@@ -129,3 +129,28 @@ set backspace=indent,eol,start
 set shortmess-=S
 set rtp+=/usr/local/opt/fzf
 set hidden
+packadd lsp
+
+" Clangd language server
+call LspAddServer([#{
+	\    name: 'clangd',
+	\    filetype: ['c', 'cpp'],
+	\    path: '/usr/local/opt/llvm/bin/clangd',
+	\    args: ['--background-index']
+	\  }])
+
+" terraform-ls
+call LspAddServer([#{
+	\    name: 'terraform-ls',
+	\    filetype: ['terraform'],
+	\    path: '/usr/local/bin/terraform-ls',
+	\    args: ['serve']
+	\  }])
+
+" gopls
+call LspAddServer([#{name: 'gopls',
+                 \   filetype: 'go',
+                 \   path: '/usr/local/bin/gopls',
+                 \   args: ['serve']
+                 \ }])
+
