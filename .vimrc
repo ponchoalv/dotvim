@@ -137,7 +137,7 @@ packadd lsp
 call LspAddServer([#{
     \    name: 'clangd',
     \    filetype: ['c', 'cpp'],
-    \    path: '/usr/local/opt/llvm/bin/clangd',
+    \    path: '/usr/bin/clangd',
     \    args: ['--background-index']
     \  }])
 
@@ -158,7 +158,7 @@ call LspAddServer([#{name: 'gopls',
 
 " helm-ls
 call LspAddServer([#{name: 'helm-ls',
-    \    filetype: ['helm'],
+    \    filetype: ['yaml', 'helm'],
     \    path: '/usr/local/bin/helm_ls',
     \    args: ['serve']
     \  }])
