@@ -17,10 +17,15 @@ set path+=**
 set wildmenu
 " set wildmode=list:longest,full " turn on wild menu in special format (long format)
 
+" turn on wild menu in popup format
+set wildoptions=pum
+
 " NOW WE CAN:
 " - Hit tab to :find by partial match
 " - Use * to make it fuzzy
 
+" SET LEADER KEY:
+let mapleader = ","
 
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
@@ -69,7 +74,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+" nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 " NOW WE CAN:
 " - Take over the world!
@@ -165,3 +170,17 @@ call LspAddServer([#{name: 'helm-ls',
 
 " Copilot
 packadd copilot
+
+" LSP mappings
+nnoremap <silent> gd <cmd>:LspGotoDefinition<CR>
+nnoremap <silent> gD <cmd>:LspGotoDeclaration<CR>
+nnoremap <silent> gr <cmd>:LspShowReferences<CR>
+nnoremap <silent> K <cmd>:LspHover<CR>
+nnoremap <silent> <leader>cr <cmd>:LspRename<CR>
+nnoremap <silent> <leader>ca <cmd>:LspCodeAction<CR>
+nnoremap <silent> <leader>cf <cmd>:LspFormat<CR>
+nnoremap <silent> <leader>cd <cmd>:LspDiag<CR>
+nnoremap <silent> <leader>cl <cmd>:LspDiagLine<CR>
+nnoremap <silent> <leader>cp <cmd>:LspDiagPrev<CR>
+nnoremap <silent> <leader>cn <cmd>:LspDiagNext<CR>
+
