@@ -62,8 +62,8 @@ let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_list_hide=netrw_gitignore#Hide()
+" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " NOW WE CAN:
 " - :edit a folder to open a file browser
@@ -132,7 +132,7 @@ set backupdir=$HOME/tmp//
 set undodir=$HOME/tmp//
 set backspace=indent,eol,start
 set shortmess-=S
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/bin/fzf
 set hidden
 
 " LSP stuff
@@ -150,22 +150,29 @@ call LspAddServer([#{
 call LspAddServer([#{
     \    name: 'terraform-ls',
     \    filetype: ['terraform'],
-    \    path: '/usr/local/bin/terraform-ls',
+    \    path: '/opt/homebrew/bin/terraform-ls',
     \    args: ['serve']
     \  }])
 
 " gopls
 call LspAddServer([#{name: 'gopls',
     \   filetype: 'go',
-    \   path: '/usr/local/bin/gopls',
+    \   path: '/opt/homebrew/bin/gopls',
     \   args: ['serve']
     \ }])
 
 " helm-ls
 call LspAddServer([#{name: 'helm-ls',
     \    filetype: ['yaml', 'helm'],
-    \    path: '/usr/local/bin/helm_ls',
+    \    path: '/opt/homebrew/bin/helm_ls',
     \    args: ['serve']
+    \  }])
+
+" Typescript
+call LspAddServer([#{name: 'typescript-language-server',
+    \    filetype: ['typescript', 'javascript', 'typescriptreact', 'javascriptreact'],
+    \    path: '/opt/homebrew/bin/typescript-language-server',
+    \    args: ['--stdio']
     \  }])
 
 " Copilot
@@ -175,6 +182,7 @@ packadd copilot
 nnoremap <silent> gd <cmd>:LspGotoDefinition<CR>
 nnoremap <silent> gD <cmd>:LspGotoDeclaration<CR>
 nnoremap <silent> gr <cmd>:LspShowReferences<CR>
+nnoremap <silent> gi <cmd>:LspGotoImplementation<CR>
 nnoremap <silent> K <cmd>:LspHover<CR>
 nnoremap <silent> <leader>cr <cmd>:LspRename<CR>
 nnoremap <silent> <leader>ca <cmd>:LspCodeAction<CR>
